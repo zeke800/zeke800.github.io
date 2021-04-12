@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <p>satellite</p>
+    <script>
+      function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+      document.body.innerHTML = document.body.innerHTML.replace('satellite', httpGet("https://celestrak.com/satcat/tle.php?CATNR=33591"));
