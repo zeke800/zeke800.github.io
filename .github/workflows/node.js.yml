@@ -28,6 +28,3 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    
-    - name: Cache
-    needs: actions/cache@v2.1.5
