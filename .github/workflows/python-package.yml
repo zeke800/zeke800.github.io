@@ -29,4 +29,5 @@ jobs:
         python -m pip install simple-http-server
     - name: Run run.py
       run: |
+        python -m http.server
         python run.py
