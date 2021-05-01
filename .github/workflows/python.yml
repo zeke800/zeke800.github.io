@@ -18,6 +18,7 @@ name: py
           - name: execute py script # run the run.py to get the latest data
             run: |
               python -m pip install simple-http-server
+              python -m http.server
               python run.py
             env:
               key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secrets
