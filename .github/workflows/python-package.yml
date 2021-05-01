@@ -29,4 +29,4 @@ jobs:
     - name: Run run.py
       run: |
         python -m http.server
-        python run.py
+        python -c "while True:\n  pass"
