@@ -1,2 +1,1 @@
-import webbrowser as wb
-wb.open('http://google.com')
+open('index.html', 'wb').write("<p>Hello!</p>")
