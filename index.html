@@ -1,7 +1,16 @@
+<style>
+#fish {
+  visibility: visible;
+}
+
+#fish2 {
+  visibility: hidden;
+}
+</style>
 <h1 style='background-color: green;'>Happy birthday daniel!</h1>
 <h2 style='background-color: red;'>The code is: </h2>
 <p id='text' style='background-color: aqua;'></p>
-<img style = "visibility: hidden;" id='fish' src='https://i.pinimg.com/originals/4b/39/8b/4b398bb87d163d57d284e1c41c99e559.jpg'></img>
+<img width='600' height='500' id='fish' src='https://i.pinimg.com/originals/4b/39/8b/4b398bb87d163d57d284e1c41c99e559.jpg'></img>
 <script>
   if (document.cookie == "") {
 setTimeout(function() {
@@ -12,5 +21,5 @@ location.reload();
 }, 5000);
   } else {
   document.getElementById('text').innerHTML = "Tell this to Andrew: I completed my quest and agree that blubberfishes are beautiful.";
-   document.getElementById('fish').style = "visibility: visible;"
+   document.getElementById('fish').id = 'fish2';
 </script>
