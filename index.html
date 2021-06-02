@@ -3,12 +3,12 @@
 <p id='text'></p>
 <script>
   if (document.cookie == "") {
-setTimeout(2000, function() {
+setTimeout(function() {
   console.log(document.cookie);
   document.cookie = "show code";
 location.reload();
   
-});
+}, 5000);
   } else {
   document.getElementById('text').innerHTML = "Tell this to Andrew: I completed my quest and agree that blubberfishes are beautiful.";
   }
