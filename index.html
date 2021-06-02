@@ -1,10 +1,14 @@
-<h1 id='text'>Happy birthday daniel!</h1>
+<h1>Happy birthday daniel!</h1>
+<h2>The code is: </h2>
+<p id='text'></p>
 <script>
   if (document.cookie == "") {
 setTimeout(2000, function() {
+  document.cookie = "show code";
+location.reload();
   
-location.reload()
-  
-})
+});
+  } else {
+  document.getElementById('text').innerHTML = "Tell this to Andrew: I completed my quest and agree that blubberfishes are beautiful."
   }
 </script>
