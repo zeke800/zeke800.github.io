@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /* Loop through a collection of all HTML elements: */
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /* Make an HTTP request using the attribute value as the file name: */
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /* Remove the attribute, and call this function once more: */
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /* Exit the function: */
+      return;
+    }
+  }
+}
+</script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+    <div w3-include-html="navbar.html"></div>
+
+  <center>
+    <h1>About Me</h1>
+    
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-scms.s3.amazonaws.com%2Fwp-content%2Fuploads%2F2020%2F08%2FNICOM_BKP120.jpg&f=1&nofb=1" width=400 height=250>
+   <h6>My brother and I use this account extensively for our various interests. Specifically, this website is mostly about satcom, my hobby, but contains different documents for other projects too.</h6>
+   <h3>My antennas</h3>
+   <h4>1x Multi use frequency antenna (just a regular dipole)</h4>
+   <h4>4x Ku band LNBs</h4>
+   <h4>1x 0.5 metre dish (unused right now)</h4>
+   <h4>1x Double Cross VHF antenna</h4>
+   <h4>1x 3 element Yagi for the 2m band</h4>
+   <h4>1x 1m offset dish - primary for GOES and HRPT reception, linear feed</h4>
+   <h4>1x 80cm offset dish - secondary for HRPT</h4>
+   <h4>1x 3m prime focus dish - expected to come online sometime in July</h4>
+   <br>
+   <br>
+   <h2>Blogs and stuff we like</h2>
+   <br>
+   <a href="https://xkcd.com/">xkcd</a>
+   <br>
+   <a href="https://sgcderek.github.io/">Derek OK9SGC's blog posts</a>
+   <br>
+   <a href="https://github.com/Xerbo/LeanHRPT-Demod">LeanHRPT Demod</a>
+   <a href="" style="text-decoration:none;">and</a>
+   <a href="https://github.com/Xerbo/LeanHRPT-Decode">Decode</a>
+   <br>
+   <a href="https://lichess.org/">Lichess</a>
+   <br>
+   <a href="https://learn.adafruit.com/generating-ai-art-with-vqgan-clip/overview">VQGAN+CLIP (AI)</a>
+   <br>
+   <a href="https://www.youtube.com/watch?v=VimZfYsDHkc">Wallace and Gromit Theme Song</a>
+  </center>
+
+
+
+<script>
+includeHTML();
+</script>
+
+
+  </body>
+  
+</html>
