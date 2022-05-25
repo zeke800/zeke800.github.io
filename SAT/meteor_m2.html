@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /* Loop through a collection of all HTML elements: */
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /* Make an HTTP request using the attribute value as the file name: */
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /* Remove the attribute, and call this function once more: */
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /* Exit the function: */
+      return;
+    }
+  }
+}
+</script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+    <div w3-include-html="../navbar.html"></div>
+
+  <center>
+  <h1>Meteor M2 off-axis imagery</h1>
+  <h4>All images were received on HRPT due to the nature of the problem (LRPT was turned off) by my emergency 80cm antenna. Hence they are not great, and I didn't have much time to receive anyways :)</h4>
+  <p>All images were processed with <a href="https://zeke800.github.io/ft_comp.txt">FT_Comp_V2</a>.</p>
+  <br>
+  <br>
+  <h5>May 5</h5>
+  <p>Late lock, lost track overhead</p>
+  <img src="https://i.ibb.co/P960fh2/1.png">
+  <br>
+  <h5>May 6</h5>
+  <img src="https://i.ibb.co/S5tRpym/2.png">
+  <h5>Also May 6</h5>
+  <img src="https://i.ibb.co/ZJzR4sz/3.png">
+  </center>
+
+
+
+<script>
+includeHTML();
+</script>
+
+
+  </body>
+  
+</html>
