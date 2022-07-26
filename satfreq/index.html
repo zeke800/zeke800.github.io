@@ -188,6 +188,17 @@
                 document.querySelector(".search").oninput();
             };
         }
+
+<h1>Links</h1>
+<h2>Decoders:</h2><ul>`;
+                    if (sat.decoders.length == 0) {
+                        content += `<li>No decoders available at this time.</li>`;
+                    }
+                    sat.decoders.forEach(altname => {
+                        content += `<li>${decoders}</li>`;
+                    });
+                    content += `
+</ul>
     </script>
 </head>
 <body>
